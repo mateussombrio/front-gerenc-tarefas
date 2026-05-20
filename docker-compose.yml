@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: front-gerenciador
+    ports:
+      - "5173:5173"
+    environment:
+      # Caso no futuro você configure o Vite para usar variáveis de ambiente
+      - VITE_API_URL=http://localhost:3000/api
+    volumes:
+      - .:/app
+      - /app/node_modules
+    # network_mode: "host" # Descomente se o backend estiver rodando localmente fora do docker e der erro de comunicação CORS
