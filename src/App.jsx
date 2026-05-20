@@ -107,18 +107,66 @@ function App() {
     updateTask(task.id, { ...task, isDone: !task.isDone });
   };
 
+  const totalCount = tasks.length;
+  const doneCount = tasks.filter((task) => task.isDone).length;
+  const pendingCount = totalCount - doneCount;
+
   return (
     <div className="App">
-      <h1>Gerenciador de Tarefas</h1>
-      <CategoryForm onAddCategory={addCategory} />
-      <TaskForm onAdd={addTask} categories={categories} />
-      <TaskList 
-        tasks={tasks} 
-        onUpdate={updateTask} 
-        onDelete={deleteTask} 
-        onToggleDone={toggleTaskDone} 
-        categories={categories}
-      />
+      <header className="page-header">
+        <div className="page-title-block">
+          <span className="eyebrow">Plano do dia</span>
+          <h1>Gerenciador de Tarefas</h1>
+          <p className="page-subtitle">
+            Organize categorias, detalhe tarefas e acompanhe o progresso.
+          </p>
+        </div>
+        <div className="kpi-grid">
+          <div className="kpi-card">
+            <span>Total</span>
+            <strong>{totalCount}</strong>
+          </div>
+          <div className="kpi-card">
+            <span>Em aberto</span>
+            <strong>{pendingCount}</strong>
+          </div>
+          <div className="kpi-card">
+            <span>Concluidas</span>
+            <strong>{doneCount}</strong>
+          </div>
+        </div>
+      </header>
+
+      <section className="forms-grid">
+        <div className="panel">
+          <div className="panel-header">
+            <h2>Nova Categoria</h2>
+            <p>Crie grupos para organizar o backlog.</p>
+          </div>
+          <CategoryForm onAddCategory={addCategory} />
+        </div>
+        <div className="panel">
+          <div className="panel-header">
+            <h2>Nova Tarefa</h2>
+            <p>Detalhe o que precisa ser feito.</p>
+          </div>
+          <TaskForm onAdd={addTask} categories={categories} />
+        </div>
+      </section>
+
+      <section className="panel">
+        <div className="panel-header">
+          <h2>Tarefas</h2>
+          <p>Marque como concluido quando finalizar.</p>
+        </div>
+        <TaskList 
+          tasks={tasks} 
+          onUpdate={updateTask} 
+          onDelete={deleteTask} 
+          onToggleDone={toggleTaskDone} 
+          categories={categories}
+        />
+      </section>
     </div>
   );
 }

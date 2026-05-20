@@ -37,8 +37,8 @@ function TaskItem({ task, onUpdate, onDelete, onToggleDone, categories }) {
         </div>
       </div>
       <div className="task-actions">
-        <button onClick={() => setIsEditing(true)}>Editar</button>
-        <button onClick={onDelete}>Remover</button>
+        <button className="btn-secondary" onClick={() => setIsEditing(true)}>Editar</button>
+        <button className="btn-danger" onClick={onDelete}>Remover</button>
       </div>
     </div>
   );
