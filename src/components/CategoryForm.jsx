@@ -13,13 +13,15 @@ function CategoryForm({ onAddCategory }) {
 
   return (
     <form onSubmit={handleSubmit} className="category-form">
-      <input
-        type="text"
-        placeholder="Nova categoria (ex: Trabalho, Estudos)"
-        value={categoryName}
-        onChange={(e) => setCategoryName(e.target.value)}
-        required
-      />
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Nova categoria (ex: Trabalho, Estudos)"
+          value={categoryName}
+          onChange={(e) => setCategoryName(e.target.value)}
+          required
+        />
+      </div>
       <button type="submit">Criar Categoria</button>
     </form>
   );
