@@ -2,7 +2,7 @@ import TaskItem from './TaskItem';
 
 function TaskList({ tasks, onUpdate, onDelete, onToggleDone, categories }) {
   if (tasks.length === 0) {
-    return <p>Nenhuma tarefa encontrada.</p>;
+    return <p className="task-empty">Nenhuma tarefa encontrada.</p>;
   }
 
   return (

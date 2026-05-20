@@ -25,29 +25,37 @@ function TaskForm({ onAdd, initialData = null, onCancel = null, categories = [] 
 
   return (
     <form className="task-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Título da Tarefa"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Descrição da Tarefa"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option value="">Sem categoria</option>
-        {categories.map((cat) => (
-          <option key={cat.id} value={cat.id}>
-            {cat.name}
-          </option>
-        ))}
-      </select>
-      <button type="submit">{initialData ? 'Atualizar' : 'Adicionar Tarefa'}</button>
-      {onCancel && <button type="button" onClick={onCancel}>Cancelar</button>}
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Título da Tarefa"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </div>
+      <div className="input-group">
+        <input
+          type="text"
+          placeholder="Descrição da Tarefa"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </div>
+      <div className="input-group">
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="">Sem categoria</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="actions-group">
+        <button type="submit">{initialData ? 'Atualizar' : 'Adicionar'}</button>
+        {onCancel && <button type="button" className="btn-secondary" onClick={onCancel}>Cancelar</button>}
+      </div>
     </form>
   );
 }
