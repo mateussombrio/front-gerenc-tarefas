@@ -1,16 +1,43 @@
-# React + Vite
+# Front-end Gerenciador de Tarefas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SPA para criar, listar e organizar tarefas por categorias. O projeto foi iniciado com Vite e React e usa ESLint para manter o padrao de codigo.
 
-Currently, two official plugins are available:
+## Tecnologias e versoes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19.2.5
+- React DOM 19.2.5
+- Vite 8.0.10
+- @vitejs/plugin-react 6.0.1
+- ESLint 10.2.1
 
-## React Compiler
+## Como rodar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Instale as dependencias:
 
-## Expanding the ESLint configuration
+```bash
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Build de producao:
+
+```bash
+npm run build
+```
+
+Pre-visualizacao do build:
+
+```bash
+npm run preview
+```
+
+Lint:
+
+```bash
+npm run lint
+```
